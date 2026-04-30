@@ -1,7 +1,4 @@
-app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "upgrade-insecure-requests");
-  next();
-});
+
 // ============================================================
 //  Om Homeopathy & Acupuncture Clinic — Express Backend
 // ============================================================
@@ -22,8 +19,12 @@ cloudinary.config({
 });
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "upgrade-insecure-requests");
+  next();
+});
+const PORT = process.env.PORT || 3000;
 // ── Rate Limiters ─────────────────────────────────────────────
 // Login: max 5 attempts per 15 minutes per IP
 const loginLimiter = rateLimit({
