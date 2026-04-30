@@ -17,7 +17,7 @@ cloudinary.config({
   api_secret:  process.env.CLOUDINARY_API_SECRET,
 });
 
-const app  = express();
+
 const PORT = process.env.PORT || 3000;
 
 // ── Rate Limiters ─────────────────────────────────────────────
@@ -41,7 +41,7 @@ const apiLimiter = rateLimit({
 
 // ── Middleware ────────────────────────────────────────────────
 
-const cors = require('cors');   
+  
 
 const app = express();
 
