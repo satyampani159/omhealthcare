@@ -40,15 +40,17 @@ const apiLimiter = rateLimit({
 });
 
 // ── Middleware ────────────────────────────────────────────────
-const cors = require('cors');
+
+const cors = require('cors');   
+
+const app = express();
 
 app.use(cors({
-  origin: [
-    'https://satyampani159.github.io'
-  ],
+  origin: ['https://omhealthcare.jo3.org'],
   methods: ['GET', 'POST', 'PATCH'],
   credentials: true
-}));app.use(express.json({ limit: '10mb' }));
+}));
+app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use('/api/', apiLimiter);                            // general API protection
 app.use(express.static(path.join(__dirname, 'public')));
