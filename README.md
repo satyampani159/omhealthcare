@@ -1,17 +1,20 @@
-# Om Health Care — Full Stack Clinic Website
+# Om Health Care — Homeopathy & Acupuncture Clinic
 
-A full-stack web application for **Om Health Care**, a homeopathy and acupuncture clinic in Rourkela, Odisha. The website presents the clinic’s services to patients, allows people to book appointments, send consultation requests, submit reviews, and contact the clinic, while the backend stores and manages all data securely through MongoDB and Cloudinary.
+**Live Website:** [https://omhealthcare.jo3.org](https://omhealthcare.jo3.org)
+
+A full-stack clinic website built for **Om Health Care**, a homeopathy and acupuncture clinic in Rourkela, Odisha. The website presents the clinic professionally, explains available services, supports appointment booking, patient chat, reviews, and contact requests, and gives the admin a secure dashboard to manage everything.
 
 ---
 
 ## Table of Contents
 
-- [Project Purpose](#project-purpose)
+- [Project Overview](#project-overview)
+- [Live Website](#live-website)
 - [Key Features](#key-features)
-- [Website Sections and Why They Exist](#website-sections-and-why-they-exist)
-- [Technology Stack](#technology-stack)
-- [System Architecture](#system-architecture)
-- [How the Backend Works](#how-the-backend-works)
+- [Website Sections and Their Purpose](#website-sections-and-their-purpose)
+- [Tech Stack](#tech-stack)
+- [How the System Works](#how-the-system-works)
+- [Backend Architecture](#backend-architecture)
 - [MongoDB Data Flow](#mongodb-data-flow)
 - [How Images Are Saved in Cloudinary](#how-images-are-saved-in-cloudinary)
 - [Admin Panel and Security](#admin-panel-and-security)
@@ -20,89 +23,109 @@ A full-stack web application for **Om Health Care**, a homeopathy and acupunctur
 - [API Endpoints](#api-endpoints)
 - [Skills Used](#skills-used)
 - [AI Tools Used for Design Assets](#ai-tools-used-for-design-assets)
+- [Deployment Process](#deployment-process)
 - [Setup and Running Locally](#setup-and-running-locally)
 - [Future Improvements](#future-improvements)
 
 ---
 
-## Project Purpose
+## Project Overview
 
-The purpose of this website is to digitize the clinic workflow and make it easier for patients to connect with the clinic online. The platform is designed to:
+This project is a complete website and backend system for a clinic that provides **homeopathy** and **acupuncture** treatment. It is designed to help patients understand the clinic, book appointments, contact the doctor, submit reviews, and share issues through a chat form. The backend stores and manages all submitted data using MongoDB, while uploaded images are hosted through Cloudinary.
 
-- present the clinic professionally
-- explain the treatments and conditions handled by the clinic
-- allow appointment booking online
-- support patient consultation requests
-- collect feedback and reviews
-- show the current clinic status as open or closed
-- give the admin a dashboard to manage all submitted records
+The project combines:
+- a responsive public website
+- a secure Node.js + Express backend
+- MongoDB database integration
+- Cloudinary image hosting
+- an admin dashboard
+- custom domain deployment through GitHub Pages
 
-This project combines a clean public-facing frontend with a secure backend, database storage, and media upload support.
+---
+
+## Live Website
+
+You can open the website directly here:
+
+**[https://omhealthcare.jo3.org](https://omhealthcare.jo3.org)**
+
+If the custom domain is still propagating, the same site can also be opened through the GitHub Pages address linked to this repository.
 
 ---
 
 ## Key Features
 
-- Modern responsive landing page for the clinic
-- Homeopathy and acupuncture service presentation
+- Responsive clinic landing page
+- Homeopathy and acupuncture service showcase
+- Doctor profile section
 - Appointment booking form
 - Doctor chat / consultation request form
-- General contact form
-- Patient review and rating system
-- Admin login and dashboard access
-- Live clinic open/closed status
-- MongoDB-based data storage
+- Review and rating system
+- Contact section with phone, email, and map link
+- Admin login and dashboard
+- Real-time clinic open/closed status
+- MongoDB-based form submission storage
 - Cloudinary-based image storage
-- Rate limiting for better protection
-- In-memory caching for faster responses
+- Rate limiting and caching for performance
+- Custom domain deployment support
 
 ---
 
-## Website Sections and Why They Exist
+## Website Sections and Their Purpose
 
-### 1. Header / Navbar
-The navbar gives users quick access to the main areas of the website such as Home, Services, Conditions, Book, Reviews, and Contact. It also includes an Admin button for dashboard access.  
-**Why it exists:** to improve navigation and make the site easy to use on desktop and mobile.
+### 1. Navbar
+The navbar gives quick access to the main sections of the website: Home, Services, Conditions, Book, Reviews, and Contact. It also includes an Admin button for dashboard access.
+
+**Purpose:** easy navigation and quick action access.
 
 ### 2. Hero Section
-The hero section introduces the clinic, highlights experience, and shows the live status indicator. It also contains the main call-to-action buttons for booking or chatting.  
-**Why it exists:** to create a strong first impression and guide the user toward action immediately.
+This is the first visual section users see. It introduces the clinic, highlights experience, shows live status, and offers booking/chat buttons.
+
+**Purpose:** create trust and encourage the user to act immediately.
 
 ### 3. Services Section
-This section explains the types of treatment available, especially homeopathy consultation and acupuncture treatment.  
-**Why it exists:** to show what the clinic offers and build trust before the patient books anything.
+This section lists the main clinic services such as consultation, acupuncture therapy, chat support, and booking.
 
-### 4. Conditions Section
-This section describes the health concerns the clinic can help with.  
-**Why it exists:** to help users quickly understand whether the clinic is relevant to their needs.
+**Purpose:** explain what the clinic offers.
 
-### 5. Appointment Section
-This form collects booking information such as name, phone, service, date, time, and note.  
-**Why it exists:** to let patients book appointments online instead of calling manually.
+### 4. Doctor Profile Section
+This section presents the doctor’s background, qualifications, experience, and expertise.
 
-### 6. Chat / Consultation Section
-This form lets patients send their issue details and optionally attach an image.  
-**Why it exists:** to support remote consultation and help the doctor review patient concerns in advance.
+**Purpose:** build credibility and confidence.
 
-### 7. Reviews Section
-This section allows patients to submit star ratings and feedback.  
-**Why it exists:** to build credibility and display social proof.
+### 5. Conditions Section
+This section lists the health issues the clinic can support.
 
-### 8. Contact Section
-This form is for general enquiries, messages, or follow-up communication.  
-**Why it exists:** to give users a simple way to reach the clinic.
+**Purpose:** help users understand whether the clinic is relevant to their needs.
 
-### 9. Footer / Contact Details
-The website displays the clinic’s phone number, email, and location-related information.  
-**Why it exists:** to make direct communication and visit planning easier.
+### 6. Appointment Section
+This form collects patient details such as name, phone number, date, time, service, and note.
+
+**Purpose:** allow online appointment booking.
+
+### 7. Chat Section
+This section allows the patient to send a problem description and optionally upload an image.
+
+**Purpose:** support early consultation and problem review.
+
+### 8. Reviews Section
+Patients can submit ratings and written feedback.
+
+**Purpose:** build social proof and patient trust.
+
+### 9. Contact Section
+This section includes contact details and a map link.
+
+**Purpose:** make it easy to call, email, or visit the clinic.
 
 ### 10. Admin Dashboard
-The admin system is used to view and manage appointments, chats, contacts, reviews, and clinic status.  
-**Why it exists:** to centralize backend management in one secure place.
+The admin view allows the clinic owner to view all submitted records and control the clinic status.
+
+**Purpose:** centralize management in a secure interface.
 
 ---
 
-## Technology Stack
+## Tech Stack
 
 ### Frontend
 - HTML5
@@ -119,88 +142,69 @@ The admin system is used to view and manage appointments, chats, contacts, revie
 - MongoDB Atlas
 - Mongoose
 
-### File and Media Handling
+### Media Storage
 - Cloudinary
 
-### Security and Utility
+### Security and Utilities
 - dotenv
 - cors
 - express-rate-limit
 - crypto
 - multer
 
-### Development Tooling
+### Development Tools
 - nodemon
 
 ---
 
-## System Architecture
+## How the System Works
 
-The application follows a simple full-stack flow:
+The application follows a standard full-stack flow:
 
-1. The user interacts with the frontend website.
-2. A form submission or action sends a request to the Express backend.
-3. The backend validates and stores the data.
-4. MongoDB stores the text-based records.
-5. Cloudinary stores the images and returns a URL.
-6. The backend sends a response back to the frontend.
-7. The frontend updates the UI based on the response.
-
-This architecture keeps the public UI fast and the backend organized.
+1. The user interacts with the frontend.
+2. The frontend sends a request to the backend API.
+3. Express receives and processes the request.
+4. The backend validates the data.
+5. MongoDB stores the submitted record.
+6. Cloudinary stores uploaded images and returns a URL.
+7. The backend responds to the frontend.
+8. The UI updates accordingly.
 
 ---
 
-## How the Backend Works
+## Backend Architecture
 
-The backend is built using Express and Mongoose. It performs the following tasks:
+The backend is built using Node.js and Express, with MongoDB for persistent storage and Cloudinary for media hosting.
 
-### 1. Loads Environment Variables
-The application reads secrets and configuration from `.env` using `dotenv`.
+### Main backend responsibilities
+- serve static frontend files
+- accept form submissions
+- store appointment, chat, contact, and review data
+- manage clinic status
+- provide admin dashboard data
+- secure the admin login route
+- protect API routes with rate limiting
+- optimize repeated reads using caching
 
-### 2. Initializes the Server
-Express creates the HTTP server and listens on the configured port.
+### Route structure
+The backend exposes separate routes for each kind of form submission and dashboard access. Mongoose models are used to keep the database structure clean and organized.
 
-### 3. Applies Middleware
-The backend uses middleware for:
-- JSON body parsing
-- URL-encoded body parsing
-- CORS
-- static file serving
-- rate limiting on API routes
-
-### 4. Connects to MongoDB Atlas
-The backend connects to MongoDB using the connection string stored in `MONGODB_URI`.
-
-### 5. Defines Mongoose Schemas
-Each type of form data has its own schema and model:
-- Appointment
-- Chat
-- Contact
-- Review
-- Status
-
-### 6. Provides API Routes
-The backend exposes POST routes for saving customer requests and GET/PATCH routes for admin and clinic status management.
-
-### 7. Handles Admin Authentication
-The backend checks the admin password from environment variables and creates a session token for the admin panel.
-
-### 8. Protects Important Routes
-Admin-only routes are protected by token validation.
-
-### 9. Optimizes Performance
-The backend uses rate limiting and in-memory caching to reduce load and improve speed.
+The backend uses environment variables for:
+- MongoDB connection
+- admin password
+- Cloudinary credentials
+- server port
 
 ---
 
 ## MongoDB Data Flow
 
-MongoDB is the main database for the project. It stores all submitted data as documents.
+MongoDB stores each kind of submission in its own collection.
 
-### Collections Used
+### Collections used
 
 #### `appointments`
-Stores booking form data:
+Stores appointment booking data:
 - name
 - phone
 - email
@@ -219,7 +223,7 @@ Stores doctor chat requests:
 - createdAt
 
 #### `contacts`
-Stores enquiry messages:
+Stores general contact messages:
 - name
 - phone
 - email
@@ -227,78 +231,64 @@ Stores enquiry messages:
 - createdAt
 
 #### `reviews`
-Stores patient feedback:
+Stores patient reviews:
 - name
 - rating
 - text
 - createdAt
 
 #### `statuses`
-Stores the current clinic status:
+Stores the clinic open/closed flag:
 - key
 - isOpen
 - updatedAt
 
-### Why MongoDB Was Used
-MongoDB is a good fit for this project because:
-- the data is document-based
-- the forms have flexible fields
-- the application needs quick inserts and reads
-- the backend is easy to maintain with Mongoose models
+### Why MongoDB was used
+- flexible document structure
+- simple integration with Mongoose
+- easy to scale
+- easy to query for dashboard data
 
 ---
 
 ## How Images Are Saved in Cloudinary
 
-The project uses Cloudinary to store uploaded images instead of saving large files directly in the database.
+The chat form supports image upload. Instead of storing image files directly in MongoDB, the project uses Cloudinary.
 
-### Image Saving Process
+### Image upload flow
+1. The user selects an image in the chat form.
+2. The frontend sends the image to the backend.
+3. The backend uploads it to Cloudinary.
+4. Cloudinary returns a hosted image URL.
+5. The backend stores that URL in MongoDB.
 
-1. The user uploads an image from the frontend.
-2. The backend receives the image data.
-3. Cloudinary is configured with the account credentials from `.env`.
-4. The backend uploads the image to Cloudinary.
-5. Cloudinary returns a hosted image URL.
-6. The backend stores that URL in MongoDB.
-
-### Why Cloudinary Is Used
-Cloudinary is used because it:
-- stores images externally and efficiently
-- reduces database size
-- provides CDN-based fast delivery
-- supports optimization and transformation of images
-- avoids storing large binary data inside MongoDB
-
-### Result
-The database stores the image link, while the actual image lives securely in Cloudinary.
+### Why Cloudinary is used
+- keeps database small
+- provides fast image delivery
+- supports CDN-based access
+- allows future image transformations and optimization
+- avoids storing large binary files in the database
 
 ---
 
 ## Admin Panel and Security
 
-The admin panel is designed for internal use only.
+The admin section is protected and meant for internal use only.
 
 ### Authentication
-- Admin login is validated using an environment variable password.
-- A token is generated after successful login.
-- The token is kept in an in-memory session set.
+- Admin password is stored in `.env`
+- Login is checked server-side
+- A session token is created after successful login
 
-### Route Protection
-Protected admin routes require a valid token in the request headers.
+### Protection
+- Admin routes require a valid token
+- Rate limiting helps prevent abuse
+- API traffic is limited to reduce spam and brute-force attempts
 
-### Rate Limiting
-The backend includes protection against abuse:
-- login attempts are limited
-- API traffic is rate-limited
-
-### Clinic Status
-The clinic status is stored in MongoDB as a single document so the admin can control whether the site shows the clinic as open or closed.
-
-### Caching
-Some data is cached in memory for a short duration to improve performance:
-- public status data
-- reviews
-- admin dashboard data
+### Performance features
+- short-term in-memory caching for repeated dashboard/public requests
+- reduced unnecessary database reads
+- optimized status handling
 
 ---
 
@@ -320,38 +310,37 @@ om-clinic/
 
 ## Environment Variables
 
-Create a `.env` file and add the required values below.
+Create a `.env` file with the following values:
 
 ```env
 MONGODB_URI=your_mongodb_connection_string
-PORT=3000
 ADMIN_PASSWORD=your_admin_password
-
 CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+PORT=3000
 ```
 
 ### Important
-Do not commit the `.env` file to version control.
+Do not commit `.env` to GitHub.
 
 ---
 
 ## API Endpoints
 
-### Public / Customer Routes
+### Public routes
 
 #### `POST /api/appointments`
-Stores appointment booking information.
+Saves appointment bookings.
 
 #### `POST /api/chats`
-Stores chat / consultation requests.
+Saves consultation requests and uploaded image URLs.
 
 #### `POST /api/contacts`
-Stores general contact form submissions.
+Saves contact form submissions.
 
 #### `POST /api/reviews`
-Stores reviews and ratings from patients.
+Saves patient ratings and reviews.
 
 #### `GET /api/status`
 Returns the current clinic open/closed status.
@@ -359,10 +348,10 @@ Returns the current clinic open/closed status.
 #### `GET /api/health`
 Returns server and database health information.
 
-### Admin Routes
+### Admin routes
 
 #### `POST /api/admin/login`
-Authenticates the admin using the password stored in `.env`.
+Authenticates the admin.
 
 #### `POST /api/admin/logout`
 Ends the admin session.
@@ -371,68 +360,125 @@ Ends the admin session.
 Fetches all dashboard data in one request.
 
 #### `PATCH /api/admin/status`
-Updates the clinic open/closed status.
+Updates clinic open/closed status.
 
 ---
 
 ## Skills Used
 
-This project was developed using a combination of frontend, backend, database, and deployment-oriented skills.
-
 ### Frontend Skills
 - semantic HTML structure
-- responsive layout design
-- Bootstrap-based UI development
+- responsive page layout
+- Bootstrap grid and components
 - custom CSS styling
-- mobile-friendly design
-- section-based content organization
-- form UI implementation
-- icon integration
-- image placement and presentation
+- section design and spacing
+- form creation
+- icon usage
+- image presentation
+- mobile-first UI planning
 
 ### Backend Skills
-- REST API design
 - Express server setup
+- REST API design
 - route handling
-- middleware configuration
-- form data processing
-- authentication logic
+- request parsing
+- middleware usage
+- server-side validation
+- admin authentication flow
 - rate limiting
-- caching logic
-- static file serving
+- static file hosting
+- environment variable management
 
 ### Database Skills
-- MongoDB collection design
-- Mongoose schema creation
-- data validation
+- MongoDB schema design
+- Mongoose models
 - CRUD operations
-- document-based storage design
+- document-based storage
+- dashboard data aggregation
 
-### Media / Storage Skills
+### Media and Storage Skills
 - Cloudinary integration
 - image upload workflow
-- hosted media URL storage
-- optimized asset delivery
+- hosted media URL saving
+- external asset management
 
-### General Engineering Skills
-- environment variable management
+### General Development Skills
 - project structuring
-- secure secret handling
-- debugging and integration
-- modular full-stack development
+- debugging
+- deployment preparation
+- security-aware configuration
+- environment separation between development and production
 
 ---
 
 ## AI Tools Used for Design Assets
 
-The logo and image modifications for the project were created and improved using **Gemini**.  
+The logo and image modifications for this project were created and improved using **Gemini**.
+
 Gemini was used for:
 - logo creation
 - image enhancement
-- visual refinements
-- design iteration support
+- visual refinement
+- image modification support
 
-This helped speed up the branding and visual asset workflow while keeping the site presentation polished.
+This helped produce polished visual assets for the clinic website.
+
+---
+
+## Deployment Process
+
+The project is deployed using:
+
+- **GitHub Pages** for the frontend
+- **Render** for the backend
+- **MongoDB Atlas** for the database
+- **Cloudinary** for image storage
+- **DNSExit** for custom domain management
+
+### 1. Frontend deployment on GitHub Pages
+The frontend is deployed from the GitHub repository as a static site.
+
+Steps:
+1. Push the frontend files to GitHub.
+2. Make sure `index.html` is in the repository root for GitHub Pages.
+3. Open **Settings → Pages** in GitHub.
+4. Select the branch and root folder.
+5. Save the settings.
+6. Add the custom domain if needed.
+
+### 2. Backend deployment on Render
+The backend is deployed as a Node.js web service.
+
+Steps:
+1. Push the backend code to GitHub.
+2. Connect the repository to Render.
+3. Use `npm start` as the start command.
+4. Add all environment variables in Render.
+5. Deploy the service.
+6. Copy the live backend URL and use it in the frontend API requests.
+
+### 3. MongoDB setup
+1. Create a MongoDB Atlas cluster.
+2. Add the database user and password.
+3. Copy the connection string.
+4. Add it to `.env` locally and to Render environment variables.
+
+### 4. Cloudinary setup
+1. Create a Cloudinary account.
+2. Copy cloud name, API key, and API secret.
+3. Add them to `.env` and Render variables.
+4. Use Cloudinary to upload and serve clinic images.
+
+### 5. Custom domain setup with DNSExit
+The domain is configured through DNSExit.
+
+Current setup:
+- A records point the root domain to GitHub Pages IP addresses
+- CNAME maps `www` to `satyampani159.github.io`
+- TTL is kept low during setup for faster propagation
+
+### 6. HTTPS on GitHub Pages
+After DNS verification, GitHub issues the SSL certificate and enables HTTPS automatically. This may take some time after DNS is correctly configured.
 
 ---
 
@@ -443,15 +489,15 @@ This helped speed up the branding and visual asset workflow while keeping the si
 npm install
 ```
 
-### 2. Add your environment variables
-Create `.env` using the template shown above.
+### 2. Create `.env`
+Add your MongoDB, Cloudinary, and admin values.
 
 ### 3. Start the development server
 ```bash
 npm run dev
 ```
 
-### 4. Start the production server
+### 4. Start production mode locally
 ```bash
 npm start
 ```
@@ -465,28 +511,29 @@ http://localhost:3000
 
 ## Future Improvements
 
-Possible upgrades for the next version:
-
-- JWT-based admin authentication
-- real-time chat system
+- JWT-based authentication
+- real-time chat support
+- appointment notifications
+- email alerts for new submissions
 - image compression before upload
-- pagination in admin dashboard
-- email notifications for new bookings
-- payment integration
-- separate dashboard analytics
-- database indexing for large-scale use
+- dashboard analytics
+- pagination for large data sets
+- custom contact form confirmation messages
 
 ---
 
 ## Summary
 
 This project is a complete clinic website solution that combines:
-- a professional public website
-- online booking and contact forms
-- patient chat and reviews
-- MongoDB-based storage
+- a polished public-facing website
+- online appointment booking
+- patient chat and image upload
+- reviews and contact forms
+- secure backend APIs
+- MongoDB storage
 - Cloudinary image hosting
-- secure admin management
-- performance and security safeguards
+- admin dashboard access
+- GitHub Pages + Render deployment
+- custom domain support
 
-It is built to support both patient convenience and clinic administration in a structured, maintainable way.
+It is designed to be practical, scalable, and easy to maintain.
