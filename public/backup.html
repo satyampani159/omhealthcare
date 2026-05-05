@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PLRL47DN');</script>
+<!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Om Health Care — Homeopathy & Acupuncture Clinic, Rourkela</title>
@@ -10,6 +17,11 @@
   <meta name="keywords" content="homeopathy clinic Rourkela, acupuncture clinic Odisha, homeopathy doctor near me, Dr Sushanta Kumar Pani, Om Health Care, acupuncture treatment, chronic pain, skin disease homeopathy, Dr. Sushanta Pani, homeopathy for stress, allergy treatment, digestive issues homeopathy, natural remedies Rourkela">
   <meta name="author" content="Om Health Care">
   <meta name="robots" content="index, follow">
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; connect-src 'self' https:; frame-ancestors 'self'; upgrade-insecure-requests">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 
   <!-- Open Graph (for WhatsApp / social sharing previews) -->
   <meta property="og:title" content="Om Health Care — Homeopathy & Acupuncture Clinic">
@@ -24,7 +36,7 @@
   "@type": ["MedicalBusiness", "LocalBusiness"],
   "name": "Om Health Care",
   "description": "Homeopathy and acupuncture clinic in Rourkela, Odisha offering treatment for chronic pain, skin conditions, stress, allergies, digestive issues, and more.",
-  "url": ""url": "https://omhealthcare.jo3.org"",
+  "url": "https://omhealthcare.jo3.org",
   "telephone": "+917978116694",
   "email": "dr.sushant.pani@gmail.com",
   "image": "https://res.cloudinary.com/dqtgalk4n/image/upload/v1777480281/Untitled_design_3_xmfi95.png",
@@ -476,6 +488,10 @@ section, header {
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLRL47DN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
   <div id="loadingOverlay">
   <div class="loading-box">
     <div class="spinner"></div>
@@ -919,7 +935,9 @@ One of the Best Homeopathy Doctors in Rourkela with more than 30 years of experi
                 <span class="pill bg-light border border-soft"><i class="bi bi-shield-check text-teal"></i> Protected host view</span>
               </div>
 
-              <form id="appointmentForm" class="row g-3 mt-1">
+              <form id="appointmentForm" class="row g-3 mt-1"
+      action="https://omhealthcare.onrender.com/api/appointments"
+      method="POST">
                 
                 <div class="col-md-6">
                   <label class="form-label fw-semibold">Full name <span class="text-danger">*</span></label>
@@ -1011,7 +1029,10 @@ One of the Best Homeopathy Doctors in Rourkela with more than 30 years of experi
 
           <div class="col-lg-7">
             <div class="panel-card p-4 p-md-5 h-100">
-              <form id="chatForm" class="row g-3">
+              <form id="chatForm" class="row g-3"
+      action="https://omhealthcare.onrender.com/api/chat"
+      method="POST"
+      enctype="multipart/form-data">
                 <div class="col-md-6">
                   <label class="form-label fw-semibold">Your name <span class="text-danger">*</span></label>
                   <input class="form-control" name="chatName" placeholder="Full name" required>
@@ -1142,7 +1163,9 @@ One of the Best Homeopathy Doctors in Rourkela with more than 30 years of experi
                       take the first step toward better health. It takes less than a minute.
                     </p>
                   </div>
-                  <form id="reviewForm" class="row g-4">
+                  <form id="reviewForm" class="row g-4"
+      action="https://omhealthcare.onrender.com/api/reviews"
+      method="POST">
                     <div class="col-md-6">
                       <label class="form-label fw-semibold">Your name <span class="text-danger">*</span></label>
                       <input class="form-control form-control-lg" name="reviewName" placeholder="e.g. Priya Sharma" required>
