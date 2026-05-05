@@ -232,8 +232,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .hero-floating{
       position:absolute;
-      top:-18px;
-      left:-14px;
       z-index:2;
       background:#fff;
       padding:.9rem 1rem;
@@ -241,6 +239,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       box-shadow:0 16px 35px rgba(15,23,42,.14);
       border:1px solid var(--border);
       min-width:180px;
+      max-width:220px;
+    }
+    .doctor-floating-wrap{
+      position:absolute;
+      inset:0;
+      z-index:3;
+      pointer-events:none;
+    }
+    .doctor-floating-wrap .hero-floating{
+      pointer-events:auto;
+    }
+    .btn-whatsapp{
+      --bs-btn-color:#fff;
+      --bs-btn-bg:#25d366;
+      --bs-btn-border-color:#25d366;
+      --bs-btn-hover-bg:#1fb85a;
+      --bs-btn-hover-border-color:#1fb85a;
+      --bs-btn-active-bg:#1fb85a;
+      --bs-btn-active-border-color:#1fb85a;
+      border-radius:999px;
+      font-weight:700;
+      box-shadow:0 10px 24px rgba(37,211,102,.22);
     }
     .status-dot{
       width:10px; height:10px; border-radius:50%;
@@ -386,6 +406,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .hero{ padding-top:5.5rem; }
       .hero-image-grid{ grid-template-columns:1fr; }
       .section-pad{ padding:4rem 0; }
+      .doctor-floating-wrap{
+        position:static;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:.75rem;
+        margin-top:.85rem;
+      }
+      .doctor-floating-wrap .hero-floating{
+        position:static !important;
+        inset:auto !important;
+        width:100%;
+        min-width:0;
+        max-width:none;
+        margin:0;
+      }
+    }
+    @media (max-width: 575.98px){
+      .doctor-floating-wrap{
+        grid-template-columns:1fr;
+      }
     }
     .hero-image-card {
   position: relative;
@@ -542,7 +582,7 @@ One of the Best Homeopathy Doctors in Rourkela with more than 30 years of experi
             </p>
             <div class="d-flex flex-wrap gap-2">
               <a href="#appointment" class="btn btn-teal btn-lg track-click"><i class="bi bi-calendar2-check me-2"></i>Book Appointment</a>
-              <a href="#chat" class="btn btn-outline-teal btn-lg track-click"><i class="bi bi-chat-dots me-2"></i>Chat with Doctor</a>
+              <a href="https://wa.me/917978116694?text=Hello%20Dr.%20Pani%2C%20I%20would%20like%20to%20chat%20with%20you." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg track-click"><i class="bi bi-whatsapp me-2"></i>Chat on WhatsApp</a>
             </div>
 
             <div class="hero-summary">
@@ -686,7 +726,7 @@ One of the Best Homeopathy Doctors in Rourkela with more than 30 years of experi
 
             <div class="d-flex flex-wrap gap-3">
               <a href="#appointment" class="btn btn-teal track-click"><i class="bi bi-calendar2-check me-2"></i>Book a consultation</a>
-              <a href="#chat" class="btn btn-outline-teal track-click"><i class="bi bi-chat-dots me-2"></i>Chat with doctor</a>
+              <a href="https://wa.me/917978116694?text=Hello%20Dr.%20Pani%2C%20I%20would%20like%20to%20chat%20with%20you." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp track-click"><i class="bi bi-whatsapp me-2"></i>WhatsApp Doctor</a>
             </div>
           </div>
 
@@ -703,26 +743,28 @@ One of the Best Homeopathy Doctors in Rourkela with more than 30 years of experi
       </div>
     </div>
 
-    <div class="hero-floating" style="top:auto; bottom:60px; left:-20px; right:auto;">
-      <div class="d-flex align-items-center gap-2">
-        <div class="service-icon" style="width:38px; height:38px; border-radius:10px; font-size:1rem;">
-          <i class="bi bi-award-fill"></i>
-        </div>
-        <div>
-          <div class="fw-bold" style="font-size:.9rem;">30+ Years</div>
-          <div class="small text-secondary">Clinical experience</div>
+    <div class="doctor-floating-wrap">
+      <div class="hero-floating" style="bottom:18px; left:12px; right:auto;">
+        <div class="d-flex align-items-center gap-2">
+          <div class="service-icon" style="width:38px; height:38px; border-radius:10px; font-size:1rem;">
+            <i class="bi bi-award-fill"></i>
+          </div>
+          <div>
+            <div class="fw-bold" style="font-size:.9rem;">30+ Years</div>
+            <div class="small text-secondary">Clinical experience</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="hero-floating" style="top:0px; left:auto; right:-16px;">
-      <div class="d-flex align-items-center gap-2">
-        <div class="service-icon" style="width:38px; height:38px; border-radius:10px; font-size:1rem;">
-          <i class="bi bi-people-fill"></i>
-        </div>
-        <div>
-          <div class="fw-bold" style="font-size:.9rem;">5,000+ Patients</div>
-          <div class="small text-secondary">Treated successfully</div>
+      <div class="hero-floating" style="top:18px; right:12px;">
+        <div class="d-flex align-items-center gap-2">
+          <div class="service-icon" style="width:38px; height:38px; border-radius:10px; font-size:1rem;">
+            <i class="bi bi-people-fill"></i>
+          </div>
+          <div>
+            <div class="fw-bold" style="font-size:.9rem;">5,000+ Patients</div>
+            <div class="small text-secondary">Treated successfully</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1051,6 +1093,7 @@ One of the Best Homeopathy Doctors in Rourkela with more than 30 years of experi
                 </div>
                 <div class="col-12 d-flex flex-wrap gap-2 align-items-center pt-2">
                   <button class="btn btn-outline-teal px-4 track-click" type="submit"><i class="bi bi-upload me-2"></i>Send to doctor</button>
+                  <a class="btn btn-whatsapp px-4 track-click" href="https://wa.me/917978116694?text=Hello%20Dr.%20Pani%2C%20I%20have%20shared%20my%20issue%20on%20the%20website.%20Please%20check%20and%20reply." target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp me-2"></i>WhatsApp now</a>
                   <span class="small text-secondary">The doctor will be able to view these insights.</span>
                 </div>
               </form>
@@ -1369,14 +1412,13 @@ One of the Best Homeopathy Doctors in Rourkela with more than 30 years of experi
             <div class="dashboard-card p-4 h-100">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h5 class="fw-bold mb-0">Doctor chats</h5>
-                <span class="small text-secondary">Name, phone, images + text</span>
+                <span class="small text-secondary">Images + text</span>
               </div>
               <div class="table-responsive">
                 <table class="table align-middle mb-0">
-                  <thead class="table-light">
+                                    <thead class="table-light">
                     <tr>
                       <th>Name</th>
-                      <th>Phone</th>
                       <th>Problem</th>
                       <th>Image</th>
                       <th>Date &amp; Time</th>
@@ -1698,14 +1740,9 @@ if (heroRating) heroRating.textContent = average ? average.toFixed(1) : '0.0';
       : `<tr><td colspan="7" class="text-center text-secondary py-4">No appointments yet</td></tr>`;
 
     document.getElementById('chatsTable').innerHTML = chats.length
-      ? chats.map(item => {
-          const phone = item.contact || item.chatContact || item.phone || '';
-          return `
+      ? chats.map(item => `
           <tr>
             <td><strong>${escapeHtml(item.name)}</strong></td>
-            <td>
-              ${phone ? `<a href="tel:${escapeHtml(phone)}" class="text-decoration-none">${escapeHtml(phone)}</a>` : '<span class="text-secondary">—</span>'}
-            </td>
             <td><div class="truncate-2">${escapeHtml(item.issue||'')}</div></td>
             <td>
 ${item.image ? `
@@ -1716,15 +1753,15 @@ ${item.image ? `
 <td>
   <div>${new Date(item.createdAt).toLocaleDateString()}</div>
   <div class="small text-secondary">
-    ${new Date(item.createdAt).toLocaleTimeString()}</div>
+    ${new Date(item.createdAt).toLocaleTimeString()}
+  </div>
 </td>            <td>
               <button class="btn btn-sm btn-danger" onclick="deleteChat('${item._id}')">
                 <i class="bi bi-trash3 me-1"></i>Delete
               </button>
             </td>
-          </tr>`;
-        }).join('')
-      : `<tr><td colspan="6" class="text-center text-secondary py-4">No chat requests yet</td></tr>`;
+          </tr>`).join('')
+      : `<tr><td colspan="5" class="text-center text-secondary py-4">No chat requests yet</td></tr>`;
 
     document.getElementById('reviewsTable').innerHTML = reviews.length
       ? reviews.map(item => `
