@@ -1,5 +1,0 @@
-MONGODB_URI=mongodb://Clinic:mongoadmin@ac-9fog9kk-shard-00-00.tuweccl.mongodb.net:27017,ac-9fog9kk-shard-00-01.tuweccl.mongodb.net:27017,ac-9fog9kk-shard-00-02.tuweccl.mongodb.net:27017/omClinicDB?authSource=admin&tls=true&retryWrites=true&w=majority
-ADMIN_PASSWORD=Admin@123
-CLOUDINARY_CLOUD_NAME=dqtgalk4n
-CLOUDINARY_API_KEY=779462973631345
-CLOUDINARY_API_SECRET=t9V2SujHNDrJvlRHdzoHUZylAXE
