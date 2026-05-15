@@ -142,6 +142,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: rgba(253, 248, 242, .93);
     }
     .navbar{
+      <a href="admin-login.html" class="btn btn-dark">Admin</a>
       border-bottom:1px solid var(--border);
     }
     .navbar-brand{
@@ -181,6 +182,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-weight:700;
     }
     .hero{
+      <h5 id="clinicStatus">Loading...</h5>
       position:relative;
       overflow:hidden;
       padding:6.5rem 0 4rem;
@@ -1417,7 +1419,6 @@ One of the Best Homeopathy Doctors in Rourkela with more than 30 years of experi
                                     <thead class="table-light">
                     <tr>
                       <th>Name</th>
-                      <th>Phone</th>
                       <th>Problem</th>
                       <th>Image</th>
                       <th>Date &amp; Time</th>
@@ -1739,14 +1740,9 @@ if (heroRating) heroRating.textContent = average ? average.toFixed(1) : '0.0';
       : `<tr><td colspan="7" class="text-center text-secondary py-4">No appointments yet</td></tr>`;
 
     document.getElementById('chatsTable').innerHTML = chats.length
-      ? chats.map(item => {
-          const contact = item.contact || item.chatContact || item.phone || '—';
-          return `
+      ? chats.map(item => `
           <tr>
             <td><strong>${escapeHtml(item.name)}</strong></td>
-            <td>
-              ${contact !== '—' ? `<a href="tel:${escapeHtml(contact)}" class="text-decoration-none">${escapeHtml(contact)}</a>` : '—'}
-            </td>
             <td><div class="truncate-2">${escapeHtml(item.issue||'')}</div></td>
             <td>
 ${item.image ? `
@@ -1764,9 +1760,8 @@ ${item.image ? `
                 <i class="bi bi-trash3 me-1"></i>Delete
               </button>
             </td>
-          </tr>`;
-        }).join('')
-      : `<tr><td colspan="6" class="text-center text-secondary py-4">No chat requests yet</td></tr>`;
+          </tr>`).join('')
+      : `<tr><td colspan="5" class="text-center text-secondary py-4">No chat requests yet</td></tr>`;
 
     document.getElementById('reviewsTable').innerHTML = reviews.length
       ? reviews.map(item => `
