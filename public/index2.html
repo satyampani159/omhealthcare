@@ -525,65 +525,6 @@ section, header {
   to { transform: rotate(360deg); }
 }
 
-    /* ── Gallery ─────────────────────────────────────────── */
-    .gallery-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
-    @media(min-width:768px){ .gallery-grid{ grid-template-columns:repeat(4,1fr); } }
-    .gallery-item {
-      position:relative; overflow:hidden; border-radius:1rem;
-      aspect-ratio:1/1; cursor:pointer; background:var(--surface);
-    }
-    .gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform .4s ease; }
-    .gallery-item:hover img { transform:scale(1.06); }
-    .gallery-item .gallery-overlay {
-      position:absolute; inset:0;
-      background:linear-gradient(to top, rgba(10,60,50,.75) 0%, transparent 60%);
-      opacity:0; transition:opacity .3s;
-      display:flex; align-items:flex-end; padding:12px;
-    }
-    .gallery-item:hover .gallery-overlay { opacity:1; }
-    .gallery-overlay span { color:#fff; font-size:.82rem; font-weight:600; }
-    .gallery-hidden { display:none; }
-    /* Lightbox */
-    .lightbox {
-      display:none; position:fixed; inset:0; z-index:9999;
-      background:rgba(0,0,0,.93); align-items:center; justify-content:center;
-    }
-    .lightbox.active { display:flex; }
-    .lightbox img { max-width:90vw; max-height:85vh; border-radius:1rem; object-fit:contain; }
-    .lightbox-close {
-      position:absolute; top:20px; right:24px;
-      color:#fff; font-size:2.2rem; cursor:pointer;
-      background:none; border:none; line-height:1;
-    }
-    .lightbox-caption {
-      position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
-      color:#fff; font-size:.9rem; background:rgba(0,0,0,.55);
-      padding:6px 18px; border-radius:20px; white-space:nowrap;
-    }
-    /* ── FAQ ─────────────────────────────────────────────── */
-    .faq-item { border:1px solid var(--border); border-radius:1rem; overflow:hidden; transition:box-shadow .2s; }
-    .faq-item:hover { box-shadow:var(--shadow-sm); }
-    .faq-question {
-      width:100%; text-align:left; background:#fff; border:none;
-      padding:18px 20px; display:flex; justify-content:space-between;
-      align-items:center; cursor:pointer; gap:12px;
-    }
-    .faq-q-text { font-weight:600; font-size:.95rem; color:var(--text-dark); }
-    .faq-icon {
-      width:28px; height:28px; border-radius:8px; flex:0 0 auto;
-      background:rgba(10,124,110,.1); color:var(--teal);
-      display:grid; place-items:center; font-size:1rem;
-      transition:transform .3s, background .3s;
-    }
-    .faq-item.open .faq-icon { transform:rotate(45deg); background:var(--teal); color:#fff; }
-    .faq-answer {
-      max-height:0; overflow:hidden;
-      transition:max-height .35s ease, padding .3s;
-      padding:0 20px; background:#fafafa;
-      font-size:.92rem; color:var(--text-muted); line-height:1.7;
-    }
-    .faq-item.open .faq-answer { max-height:300px; padding:14px 20px 18px; }
-
   </style>
 </head>
 <body>
@@ -618,8 +559,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
             <li class="nav-item"><a class="nav-link" href="#conditions">Conditions</a></li>
             <li class="nav-item"><a class="nav-link" href="#appointment">Book</a></li>
-            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
             <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             <li class="nav-item ms-lg-2">
@@ -1353,132 +1292,6 @@ One of the Best Homeopathy Doctors in Rourkela with more than 30 years of experi
       </div>
     </section>
 
-    <!-- ═══════════════════════════════ GALLERY ═══════════════════════════════ -->
-    <section id="gallery" class="section-pad">
-      <div class="container">
-        <div class="row g-4 align-items-end mb-4">
-          <div class="col-lg-7">
-            <span class="pill badge-soft mb-3"><i class="bi bi-images"></i> Our clinic</span>
-            <h2 class="section-title">Gallery</h2>
-            <p class="section-sub">A glimpse into our clinic — the spaces where healing happens and the care that defines us.</p>
-          </div>
-          <div class="col-lg-5 text-lg-end">
-            <p class="small-note mb-0">Click any image to view full size.</p>
-          </div>
-        </div>
-
-        <div class="gallery-grid" id="galleryGrid">
-          <!-- ── First 4 always visible ── -->
-          <div class="gallery-item" onclick="openLightbox(this)" data-caption="Om Health Care Clinic">
-            <img src="https://res.cloudinary.com/dqtgalk4n/image/upload/v1779263977/IMG_20260516_192711932_HDR_glmssk.jpg" alt="Om Health Care Clinic" loading="lazy">
-            <div class="gallery-overlay"><span>Om Health Care Clinic</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox(this)" data-caption="Clinic interior">
-            <img src="https://res.cloudinary.com/dqtgalk4n/image/upload/v1779264003/IMG_20260516_192655253_HDR_fimjnt.jpg" alt="Clinic interior" loading="lazy">
-            <div class="gallery-overlay"><span>Clinic interior</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox(this)" data-caption="Our clinic">
-            <img src="https://res.cloudinary.com/dqtgalk4n/image/upload/v1779264313/IMG-20260520-WA0008_k7wkqo.jpg" alt="Our clinic" loading="lazy">
-            <div class="gallery-overlay"><span>Our clinic</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox(this)" data-caption="Clinic space">
-            <img src="https://res.cloudinary.com/dqtgalk4n/image/upload/v1779264319/IMG-20260520-WA0007_zkom3n.jpg" alt="Clinic space" loading="lazy">
-            <div class="gallery-overlay"><span>Clinic space</span></div>
-          </div>
-
-          <!-- ── Add more images below — they will be hidden until "Show more" is clicked ──
-               To add: copy one block below, paste here, update src and data-caption
-          <div class="gallery-item gallery-hidden" onclick="openLightbox(this)" data-caption="Your caption">
-            <img src="YOUR_CLOUDINARY_URL" alt="Description" loading="lazy">
-            <div class="gallery-overlay"><span>Your caption</span></div>
-          </div>
-          -->
-        </div>
-
-        <div class="text-center mt-4" id="galleryToggleWrap" style="display:none;">
-          <button class="btn btn-outline-teal px-5" id="galleryToggleBtn" onclick="toggleGallery()">
-            <i class="bi bi-images me-2"></i>Show more photos
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
-      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-      <img id="lightboxImg" src="" alt="">
-      <div class="lightbox-caption" id="lightboxCaption"></div>
-    </div>
-
-    <!-- ═══════════════════════════════ FAQ ═══════════════════════════════ -->
-    <section id="faq" class="section-pad bg-white border-top">
-      <div class="container">
-        <div class="row g-5 align-items-start">
-          <div class="col-lg-4">
-            <span class="pill badge-soft mb-3"><i class="bi bi-question-circle"></i> FAQ</span>
-            <h2 class="section-title">Frequently asked questions</h2>
-            <p class="section-sub">Answers to the most common questions patients ask before visiting Om Health Care.</p>
-            <a href="#appointment" class="btn btn-teal mt-3 track-click">
-              <i class="bi bi-calendar2-check me-2"></i>Book a consultation
-            </a>
-          </div>
-          <div class="col-lg-8">
-            <div class="d-flex flex-column gap-3">
-
-              <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                  <span class="faq-q-text">Is homeopathy safe? Are there any side effects?</span>
-                  <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                </button>
-                <div class="faq-answer">Yes — homeopathy is completely safe for all age groups including infants, pregnant women, and the elderly. The medicines are made from highly diluted natural substances and have no known toxic side effects. They do not interfere with conventional medicines, making them safe to use alongside other treatments.</div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                  <span class="faq-q-text">Does acupuncture hurt? What does it feel like?</span>
-                  <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                </button>
-                <div class="faq-answer">Most patients feel little to no pain during acupuncture. The needles used are extremely fine — much thinner than injection needles. You may feel a mild tingling, warmth, or a dull ache at the insertion point, which is a sign the treatment is working. Most patients find the experience deeply relaxing.</div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                  <span class="faq-q-text">How many sessions will I need before seeing results?</span>
-                  <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                </button>
-                <div class="faq-answer">It depends on the condition and how long you have had it. Acute conditions like headaches or minor pain may respond within 1–3 sessions. Chronic conditions like arthritis, skin disorders, or hormonal imbalances typically require 4–8 weeks of consistent treatment. Dr. Pani will give you a personalised timeline during your first consultation.</div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                  <span class="faq-q-text">Can I continue my existing medicines while taking homeopathy?</span>
-                  <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                </button>
-                <div class="faq-answer">Yes. Homeopathic medicines do not interact with allopathic medicines and can be taken safely alongside them. Many patients use homeopathy as a complementary approach. Always inform the doctor about all medicines you are currently taking so the best treatment plan can be made for you.</div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                  <span class="faq-q-text">What conditions can be treated at Om Health Care?</span>
-                  <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                </button>
-                <div class="faq-answer">We treat a wide range including chronic pain, arthritis, migraines, skin disorders (eczema, psoriasis, acne), stress and anxiety, digestive issues, allergies, asthma, PCOS, thyroid problems, and children's health concerns. If you are unsure whether your condition can be helped, use the Doctor Chat or book a consultation.</div>
-              </div>
-
-              <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                  <span class="faq-q-text">How do I book an appointment? Is online booking available?</span>
-                  <span class="faq-icon"><i class="bi bi-plus"></i></span>
-                </button>
-                <div class="faq-answer">Yes — use the Book Appointment form on this page. Fill in your name, phone number, preferred date and time, and the service you need. The clinic team will confirm your appointment. You can also use the Doctor Chat to describe your problem and upload an image before visiting.</div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <footer class="py-4 border-top">
       <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
         <div class="text-secondary small">© Om Health Care</div>
@@ -2187,51 +2000,6 @@ function hideLoader() {
     setTimeout(() => el.classList.remove('active'), 300);
   }
 }
-  // ── Gallery Lightbox ──────────────────────────────────────
-  function openLightbox(el) {
-    document.getElementById('lightboxImg').src = el.querySelector('img').src;
-    document.getElementById('lightboxCaption').textContent = el.dataset.caption || '';
-    document.getElementById('lightbox').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  function closeLightboxOutside(e) {
-    if (e.target === document.getElementById('lightbox')) closeLightbox();
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-  // ── Gallery Show More ─────────────────────────────────────
-  // Check if there are hidden items and show the button if so
-  document.addEventListener('DOMContentLoaded', () => {
-    const hidden = document.querySelectorAll('.gallery-hidden');
-    if (hidden.length > 0) {
-      document.getElementById('galleryToggleWrap').style.display = 'block';
-    }
-  });
-
-  let galleryExpanded = false;
-  function toggleGallery() {
-    galleryExpanded = !galleryExpanded;
-    document.querySelectorAll('.gallery-hidden').forEach(el => {
-      el.style.display = galleryExpanded ? 'block' : 'none';
-    });
-    const btn = document.getElementById('galleryToggleBtn');
-    btn.innerHTML = galleryExpanded
-      ? '<i class="bi bi-dash-circle me-2"></i>Show less'
-      : '<i class="bi bi-images me-2"></i>Show more photos';
-  }
-
-  // ── FAQ Accordion ─────────────────────────────────────────
-  function toggleFaq(btn) {
-    const item   = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-  }
-
   </script>
 </body>
 </html>
