@@ -1388,14 +1388,14 @@ One of the Best Homeopathy Doctors in Rourkela with more than 30 years of experi
 
           <!-- ── Add more images below — they will be hidden until "Show more" is clicked ──
                To add: copy one block below, paste here, update src and data-caption
-          <div class="gallery-item gallery-hidden" onclick="openLightbox(this)" data-caption="Your caption">
-            <img src="YOUR_CLOUDINARY_URL" alt="Description" loading="lazy">
-            <div class="gallery-overlay"><span>Your caption</span></div>
-          </div>
           -->
+          <div class="gallery-item gallery-hidden" onclick="openLightbox(this)" data-caption="Clinic view">
+            <img src="https://res.cloudinary.com/dqtgalk4n/image/upload/v1779264001/IMG_20260516_191353029_HDR_msfyeq.jpg" alt="Clinic view" loading="lazy">
+            <div class="gallery-overlay"><span>Clinic view</span></div>
+          </div>
         </div>
 
-        <div class="text-center mt-4" id="galleryToggleWrap" style="display:none;">
+        <div class="text-center mt-4" id="galleryToggleWrap">
           <button class="btn btn-outline-teal px-5" id="galleryToggleBtn" onclick="toggleGallery()">
             <i class="bi bi-images me-2"></i>Show more photos
           </button>
@@ -2204,20 +2204,15 @@ function hideLoader() {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
   // ── Gallery Show More ─────────────────────────────────────
-  // Check if there are hidden items and show the button if so
-  document.addEventListener('DOMContentLoaded', () => {
-    const hidden = document.querySelectorAll('.gallery-hidden');
-    if (hidden.length > 0) {
-      document.getElementById('galleryToggleWrap').style.display = 'block';
-    }
-  });
-
   let galleryExpanded = false;
   function toggleGallery() {
+    const hidden = document.querySelectorAll('.gallery-hidden');
+    if (hidden.length === 0) {
+      alert('No additional photos yet. More coming soon!');
+      return;
+    }
     galleryExpanded = !galleryExpanded;
-    document.querySelectorAll('.gallery-hidden').forEach(el => {
-      el.style.display = galleryExpanded ? 'block' : 'none';
-    });
+    hidden.forEach(el => { el.style.display = galleryExpanded ? 'block' : 'none'; });
     const btn = document.getElementById('galleryToggleBtn');
     btn.innerHTML = galleryExpanded
       ? '<i class="bi bi-dash-circle me-2"></i>Show less'
