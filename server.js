@@ -45,8 +45,20 @@ const apiLimiter = rateLimit({
 });
 
 // ── Middleware ────────────────────────────────────────────────
+const allowedOrigins = [
+  'https://omhealthcare.jo3.org',
+  'https://satyampani159.github.io',
+  'http://localhost:3000',
+];
+
 app.use(cors({
-  origin: ['https://omhealthcare.jo3.org'],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PATCH', 'DELETE'],
   credentials: true
 }));
